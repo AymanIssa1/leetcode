@@ -20,10 +20,18 @@ class Solution(object):
                     if arr not in output:
                         output.append(arr)
                 
-                if nums[i] + nums[left] + nums[right] > 0:
+                if total > 0:
                     right -= 1
-                else:
+                elif total < 0:
                     left += 1
+                else:
+                    arr = [nums[i], nums[left], nums[right]]
+                    while left < right and nums[left] == nums[left + 1]:
+                        left += 1  # skip duplicate elements
+                    while left < right and nums[right] == nums[right - 1]:
+                        right -= 1  # skip duplicate elements
+                    left += 1
+                    right -= 1
                 
 
         return output
