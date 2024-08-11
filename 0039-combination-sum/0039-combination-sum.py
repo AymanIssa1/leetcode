@@ -10,7 +10,6 @@ class Solution(object):
         return result
 
     def helper(self, index, candidates, target, curr_subset, result):
-        print("index=",index,", curr_subset=", curr_subset)
         if sum(curr_subset) == target:
             result.append(curr_subset)
             return
