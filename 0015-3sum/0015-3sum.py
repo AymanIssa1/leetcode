@@ -9,7 +9,10 @@ class Solution(object):
         
         nums.sort()
 
-        for i in range(n):
+        for i in range(n - 2):
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue  # skip duplicate elements
+                
             left = i + 1
             right = n - 1
 
