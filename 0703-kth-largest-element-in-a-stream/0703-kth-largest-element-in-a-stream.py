@@ -8,8 +8,7 @@ class KthLargest(object):
         self.k = k
         self.heap = []
         for num in nums:
-            self.add(num)  # Using the add method to maintain the heap size.
-        
+            self.add(num)
 
     def add(self, val):
         """
@@ -21,8 +20,6 @@ class KthLargest(object):
         elif val > self.heap[0]:
             heapq.heapreplace(self.heap, val)
         return self.heap[0]
-        
-        
 
 
 # Your KthLargest object will be instantiated and called as such:
