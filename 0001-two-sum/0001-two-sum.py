@@ -1,16 +1,12 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        hashmap = dict()
+        hash_map = {}
+
         for i in range(len(nums)):
-            remaining_num = target - nums[i]
-            if remaining_num in hashmap:
-                return [hashmap[remaining_num], i]
+            curr = nums[i]
+            diff = target - curr
+            if diff in hash_map:
+                return [i, hash_map[diff]]
             else:
-                hashmap[nums[i]] = i
-        
-        return []
+                hash_map[curr] = i
+    
