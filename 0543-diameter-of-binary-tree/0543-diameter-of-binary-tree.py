@@ -7,7 +7,7 @@
 class Solution(object):
     def diameterOfBinaryTree(self, root):
         """
-        :type root: TreeNode
+        :type root: Optional[TreeNode]
         :rtype: int
         """
         self.diameter = 0
@@ -23,8 +23,4 @@ class Solution(object):
 
         self.diameter = max(self.diameter, left_sum + right_sum)
 
-        return max(left_sum, right_sum) + 1
-
-
-
-        
+        return 1 + max(left_sum, right_sum)
