@@ -1,17 +1,16 @@
 class Solution(object):
     def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
         subsets = []
-        currSet = []
-        self.helper(0, nums, currSet, subsets)
+        subsets.append([])
+
+        for num in nums:
+            for i in range(len(subsets)):
+                set1 = list(subsets[i])
+                set1.append(num)
+                subsets.append(set1)
+
         return subsets
-
-    def helper(self, i, nums, currSet, subsets):
-        if i >= len(nums):
-            subsets.append(currSet[:])
-            return
-        
-        currSet.append(nums[i])
-        self.helper(i+1, nums, currSet, subsets)
-
-        currSet.pop()
-        self.helper(i+1, nums, currSet, subsets)
