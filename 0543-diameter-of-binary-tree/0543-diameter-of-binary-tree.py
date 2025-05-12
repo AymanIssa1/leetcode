@@ -6,23 +6,25 @@
 #         self.right = right
 class Solution(object):
     def diameterOfBinaryTree(self, root):
-        if not root:
-            return 0
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
         self.diameter = 0
-        
-        self.diameterOfBinaryTreeHelper(root)
-
+        self.helper(root)
         return self.diameter
-
-
-    def diameterOfBinaryTreeHelper(self, root):
-        if not root:
+    
+    def helper(self, node):
+        if not node:
             return 0
         
-        left_sum = self.diameterOfBinaryTreeHelper(root.left)
-        right_sum = self.diameterOfBinaryTreeHelper(root.right)
+        left_sum = self.helper(node.left)
+        right_sum = self.helper(node.right)
 
         self.diameter = max(self.diameter, left_sum + right_sum)
 
         return max(left_sum, right_sum) + 1
+
+
+
         
